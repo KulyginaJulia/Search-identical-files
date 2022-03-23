@@ -1,8 +1,8 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
-#include "ui_QtWidgetsApplication1.h"
 #include "AnalyzeModel.h"
+#include "ui_SearchIndeticalApplication.h"
 
 class SearchIndeticalApplication : public QMainWindow
 {

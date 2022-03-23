@@ -14,48 +14,47 @@ SearchIndeticalApplication::SearchIndeticalApplication(QWidget *parent)
 }
 
 void SearchIndeticalApplication::openFirstFolder() {
-	QFileDialog fileOpen(this, tr("Open file"));
-	fileOpen.setAcceptMode(QFileDialog::AcceptOpen);
-	fileOpen.setFileMode(QFileDialog::Directory);
+	QFileDialog folderOpen(this, tr("Select folder"));
+	folderOpen.setAcceptMode(QFileDialog::AcceptOpen);
+	folderOpen.setFileMode(QFileDialog::Directory);
 
-	if (!fileOpen.exec())
+	if (!folderOpen.exec())
 		return;
 
-	QStringList fileNames = fileOpen.selectedFiles();
-	if (fileNames.size() == 0)
+	QStringList folderNames = folderOpen.selectedFiles();
+	if (folderNames.size() == 0)
 		return;
-	QString fileName = fileNames[0];
+	QString folderName = folderNames[0];
 
-	QFileInfo fi(fileName);
+	QFileInfo fi(folderName);
 	if (!fi.exists() || !fi.isReadable()) {
-		QMessageBox::critical(this, "Error in file opening", QString("Can't open file %1").arg(fileName));
+		QMessageBox::critical(this, "Error in directory opening", QString("Can't open directory %1").arg(folderName));
 		return;
 	}
-	ui.path1Label->setText(fileName);
-	model->folder1 = fileName;
+	ui.path1Label->setText(folderName);
+	model->folder1 = folderName;
 }
 
 void SearchIndeticalApplication::openSecondFolder() {
-	QFileDialog fileOpen(this, tr("Open file"));
-	fileOpen.setAcceptMode(QFileDialog::AcceptOpen);
-	fileOpen.setFileMode(QFileDialog::Directory);
+	QFileDialog folderOpen(this, tr("Select folder"));
+	folderOpen.setAcceptMode(QFileDialog::AcceptOpen);
+	folderOpen.setFileMode(QFileDialog::Directory);
 
-	if (!fileOpen.exec())
+	if (!folderOpen.exec())
 		return;
 
-	QStringList fileNames = fileOpen.selectedFiles();
-	if (fileNames.size() == 0)
+	QStringList folderNames = folderOpen.selectedFiles();
+	if (folderNames.size() == 0)
 		return;
-	QString fileName = fileNames[0];
+	QString folderName = folderNames[0];
 
-	QFileInfo fi(fileName);
+	QFileInfo fi(folderName);
 	if (!fi.exists() || !fi.isReadable()) {
-		QMessageBox::critical(this, "Error in file opening", QString("Can't open file %1").arg(fileName));
+		QMessageBox::critical(this, "Error in directory opening", QString("Can't open directory %1").arg(folderName));
 		return;
 	}
-
-	ui.path2Label->setText(fileName);
-	model->folder2 = fileName;
+	ui.path2Label->setText(folderName);
+	model->folder2 = folderName;
 }
 
 void SearchIndeticalApplication::compare() {

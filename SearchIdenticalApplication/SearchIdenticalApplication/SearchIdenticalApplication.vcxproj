@@ -86,6 +86,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\AnalyzeModel.cpp" />
     <ClCompile Include="src\SearchIndeticalApplication.cpp" />
     <QtRcc Include="SearchIndeticalApplication.qrc" />
     <ClCompile Include="main.cpp" />
